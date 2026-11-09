@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "note": "每个 Skill 包需要同步的共用规则、模板、脚本和跨包副本。源文件只在 skill-source/shared、templates、tools 或指定的源包中修改；包内副本由 tools/skilltool.py sync 生成，不手改。",
+  "shared": ["00-index.md", "D05-records-and-dictionary.md", "D06-roles-routing-review.md", "D07-data-levels-access.md", "D09-pricing-and-cost.md", "D10-visual-and-brand.md"],
+  "skills": {
+    "project-hub": {
+      "code": "S00",
+      "templates": ["TP01-project-card.md", "TP02-project-log.md", "TP03-handoff-card.md", "TP20-weekly-report.md"],
+      "scripts": ["init_project.py"],
+      "copies": []
+    },
+    "intake-update": {
+      "code": "S01",
+      "templates": ["TP01-project-card.md", "TP02-project-log.md", "TP03-handoff-card.md", "TP05-update-suggestions.md"],
+      "scripts": [],
+      "copies": []
+    },
+    "brief-analysis": {
+      "code": "S02",
+      "templates": ["TP01-project-card.md", "TP03-handoff-card.md", "TP06-requirement-matrix.md"],
+      "scripts": [],
+      "copies": []
+    },
+    "planning-design": {
+      "code": "S03",
+      "templates": ["TP03-handoff-card.md", "TP07-planning-card-structure.md", "TP08-direction-and-structure.md", "TP09-style-card.md"],
+      "scripts": [],
+      "copies": []
+    },
+    "sourcing-costing": {
+      "code": "S04",
+      "templates": ["TP03-handoff-card.md", "TP10-rfq.md", "TP11-quote-comparison.md", "TP12-client-quotation.md", "X01-cost-calculator.xlsx"],
+      "scripts": ["cost_recalc.py"],
+      "copies": []
+    },
+    "deliverable-production": {
+      "code": "S05",
+      "templates": ["TP03-handoff-card.md", "TP09-style-card.md", "TP12-client-quotation.md", "TP13-proposal-doc.md", "TP14-ppt-content.md", "TP15-bid-response-framework.md", "TP16-client-copy-and-notices.md", "TP20-weekly-report.md"],
+      "scripts": [],
+      "copies": []
+    },
+    "change-review": {
+      "code": "S06",
+      "templates": ["TP01-project-card.md", "TP03-handoff-card.md", "TP04-change-impact.md"],
+      "scripts": ["check_consistency.py"],
+      "copies": [{"from": ".agents/skills/brief-analysis/references/bid-checklist.md", "to": "references/bid-checklist.md"}]
+    },
+    "delivery-settlement": {
+      "code": "S07",
+      "templates": ["TP03-handoff-card.md", "TP17-execution-handbook.md", "TP18-acceptance-settlement-checklist.md"],
+      "scripts": [],
+      "copies": []
+    },
+    "closeout-review": {
+      "code": "S08",
+      "templates": ["TP03-handoff-card.md", "TP19-closeout-review.md"],
+      "scripts": [],
+      "copies": []
+    }
+  },
+  "instruction_bundles": {
+    "shared-rules": "全部共用规则合为一个文件，供不支持原生技能的平台作为知识文件",
+    "scenarios": "project-hub 的路由表与全部场景卡合为一个文件"
+  }
+}
